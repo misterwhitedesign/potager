@@ -159,3 +159,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * add wp-less plugin
+ **/
+require dirname(__FILE__) . '/vendor/wp-less/bootstrap-for-theme.php';
+$less = WPLessPlugin::getInstance();
+$less->dispatch();
