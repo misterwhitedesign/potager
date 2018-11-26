@@ -120,7 +120,14 @@ add_action( 'widgets_init', 'potager_widgets_init' );
  * Enqueue scripts and styles.
  */
 function potager_scripts() {
-	wp_enqueue_style( 'potager-style', get_stylesheet_uri() );
+	/**
+	 * add wp-less plugin
+	 **/
+	require dirname(__FILE__) . '/vendor/wp-less/bootstrap-for-theme.php';
+	$less = WPLessPlugin::getInstance();
+	$less->dispatch();
+
+	wp_enqueue_style( 'potager-style', get_template_directory_uri() . '/layouts/potager.less' );
 
 	wp_enqueue_script( 'potager-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -158,10 +165,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-/**
- * add wp-less plugin
- **/
-require dirname(__FILE__) . '/vendor/wp-less/bootstrap-for-theme.php';
-$less = WPLessPlugin::getInstance();
-$less->dispatch();
