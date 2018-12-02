@@ -140,6 +140,15 @@ function potager_scripts() {
 add_action( 'wp_enqueue_scripts', 'potager_scripts' );
 
 /**
+ * retrieves logo url
+ **/
+ function get_logo_url() {
+	 $custom_logo_id = get_theme_mod( 'custom_logo' );
+	 $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+	 return $image[0];
+ }
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
