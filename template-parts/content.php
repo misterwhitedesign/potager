@@ -20,7 +20,7 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<!--div class="entry-meta">
 				<?php
 				potager_posted_on();
 				potager_posted_by();
