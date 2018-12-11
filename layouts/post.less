@@ -1,13 +1,34 @@
-.post-thumbnail {
-  width: 500px;
-  overflow: hidden;
-  position: absolute;
-  top:0px;
-  left:0px;
-  img.wp-post-image {
-    filter: grayscale(80%);
-    width: auto;
-    height:700px;
-    z-index: -1;
+body {
+  .post {
+    .post-thumbnail {
+      width: 500px;
+      overflow: hidden;
+      position: absolute;
+      top:0px;
+      left:0px;
+      img.wp-post-image {
+        filter: grayscale(80%);
+        width: auto;
+        height:700px;
+        z-index: -1;
+      }
+    }
+    .entry-header {
+      width:100%;
+      padding-left: 32rem;
+      .entry-title {
+        margin-top:0;
+        width:100%;
+      }
+      padding-bottom: 0;
+    }
+    .entry-content {
+      width: 40%;
+      p {
+        line-height: 1.1rem;
+        width: 100%;
+        margin-left: 35rem;
+      }
+    }
   }
 }
