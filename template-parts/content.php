@@ -23,7 +23,6 @@
 			<!--div class="entry-meta">
 				<?php
 				potager_posted_on();
-				potager_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -44,11 +43,6 @@
 				)
 			),
 			get_the_title()
-		) );
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'potager' ),
-			'after'  => '</div>',
 		) );
 		?>
 	</div><!-- .entry-content -->

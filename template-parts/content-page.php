@@ -19,15 +19,21 @@
 	<div class="entry-content">
 		<?php
 		the_content();
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'potager' ),
-			'after'  => '</div>',
-		) );
 		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
+	</div><!-- .entry-content --><?php
+	if ( is_front_page()) : ?>
+		<ul class="projets">
+			<?php
+			$projets = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1));
+			while ( $projets->have_posts() ) :
+				$projets->the_post();
+				echo '<li>' . get_the_post_thumbnail( get_the_ID(), 'full' ) .
+						'<a href="' . get_permalink() . '">' . get_the_title(). '</a></li>';
+			endwhile;
+			?>
+		</ul><?php
+	endif;
+	if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
 			edit_post_link(
