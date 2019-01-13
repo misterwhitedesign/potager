@@ -24,7 +24,7 @@
 	if ( is_front_page()) : ?>
 		<ul class="projets">
 			<?php
-			$projets = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1));
+			$projets = new WP_Query(array('post_type'=>'projet', 'post_status'=>'publish', 'posts_per_page'=>-1));
 			while ( $projets->have_posts() ) :
 				$projets->the_post();
 				echo '<li>' . get_the_post_thumbnail( get_the_ID(), 'full' ) .
