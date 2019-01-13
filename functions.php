@@ -148,6 +148,25 @@ add_action( 'wp_enqueue_scripts', 'potager_scripts' );
 	 return $image[0];
  }
 
+ function projet_module() {
+	 $args = array(
+		 'label' => __('Projets'),
+		 'singular_label' => __('Projet'),
+		 'public' => true,
+		 'show_ui' => true,
+		 '_builtin' => false,
+		 '_edit_link' => 'post.php?post=%d',
+		 'capability_type' => 'post',
+		 'rewrite' => array("slug" => "projets"),
+		 'query_var' => "projets",
+		 'supports' => array('title', 'editor', 'thumbnail')
+	 );
+	 register_post_type( 'projet' , $args );
+	 register_taxonomy_for_object_type('post_tag', 'projet','show_tagcloud=1&hierarchical=true');
+//add_action("admin_init", "admin_init"); function pour ajouter des champs personnalisés
+//add_action('save_post', 'save_custom'); function pour la sauvegarde de nos champs personnalisés
+}
+add_action('init', 'projet_module');
 /**
  * Implement the Custom Header feature.
  */
