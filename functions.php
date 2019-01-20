@@ -159,7 +159,8 @@ add_action( 'wp_enqueue_scripts', 'potager_scripts' );
 		 'capability_type' => 'post',
 		 'rewrite' => array("slug" => "projets"),
 		 'query_var' => "projets",
-		 'supports' => array('title', 'editor', 'thumbnail')
+		 'supports' => array('title', 'editor', 'thumbnail'),
+		 'taxonomies' => array( 'category' ),
 	 );
 	 register_post_type( 'projet' , $args );
 	 register_taxonomy_for_object_type('post_tag', 'projet','show_tagcloud=1&hierarchical=true');
