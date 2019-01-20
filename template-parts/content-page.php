@@ -27,7 +27,9 @@
 			$projets = new WP_Query(array('post_type'=>'projet', 'post_status'=>'publish', 'posts_per_page'=>-1));
 			while ( $projets->have_posts() ) :
 				$projets->the_post();
-				echo '<a href="' . get_permalink() . '">' . get_the_post_thumbnail( get_the_ID(), 'medium' ).'</a>';
+				echo '<figure><a href="' . get_permalink() . '">'
+				. get_the_post_thumbnail( get_the_ID(), 'medium' ).'</a>'
+				.'<figcaption>'. get_the_category()[0]->name. '</figcaption><figure>';
 			endwhile;
 			?>
 		</ul><?php
