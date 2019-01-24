@@ -6,10 +6,9 @@
  *
  * @package potager
  */
-
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" style="background-image=url('<?php echo $src ?>')" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -27,8 +26,6 @@
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php potager_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

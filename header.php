@@ -21,7 +21,19 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+	<div class="scroll">
+<?php
+  $background_image = '';
+	if ($post) {
+		$post_id = get_post_thumbnail_id( $post );
+	  $src = get_field('image_principale')['url'];
+		if (!$src) {
+			$src = wp_get_attachment_image_src($post_id)[0];
+		}
+		$background_image = 'style="background-image:url(\''.$src.'\');"';
+	}
+?>
+<div id="page" class="site" <?php echo $background_image?>>
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home" itemprop="url">

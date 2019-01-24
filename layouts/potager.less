@@ -6,13 +6,19 @@
 @import "footer";
 
 body {
-  padding-left: 2.5rem;
   margin-top: 0;
-  height:100vh;
+  margin-left: 0;
+  height: 100vh;
   background: linear-gradient(#176f89, #2bd1aa);
-  .site {
-    overflow-y: scroll;
+  .scroll {
+    overflow-y: auto;
     height: 100%;
+  }
+  .site {
+    padding-left: 2.5rem;
+    background-repeat: no-repeat;
+    background-size: 500px auto;
+    background-position:left top;
   }
   .site-main {
     .entry-header {
