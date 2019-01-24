@@ -48,6 +48,11 @@
 		$images = acf_photo_gallery('gallerie', $post->ID);
 		//Check if return array has anything in it
 		if( count($images) ):
+			?>
+			</div><!-- .entry-content -->
+			<section class="gallerie-projet">
+			<?php
+				$index = 0;
 				//Cool, we got some data so now let's loop over it
 				foreach($images as $image):
 						$id = $image['id']; // The attachment id of the media
@@ -60,14 +65,16 @@
 						$target= $image['target']; //Open normal or new tab
 						$alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
 						$class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
+						$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche");
 ?>
 		<?php if( !empty($url) ){ ?><a href="<?php echo $url; ?>" <?php echo ($target == 'true' )? 'target="_blank"': ''; ?>><?php } ?>
-				<img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
+				<figure class="<?php echo $figure_class; ?>">
+					<img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
+				</figure>
 		<?php if( !empty($url) ){ ?></a><?php } ?>
 <?php endforeach; endif;
 		?>
-	</div><!-- .entry-content -->
-
+	</section>
 	<footer class="entry-footer">
 		<?php potager_entry_footer(); ?>
 	</footer><!-- .entry-footer -->

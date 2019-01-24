@@ -32,7 +32,7 @@
 				$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche");
 				echo '<figure class="'.$figure_class.'"><a href="' . get_permalink() . '">'
 				. get_the_post_thumbnail( get_the_ID(), 'medium' ).'</a>'
-				.'<figcaption>'. get_the_category()[0]->name. '</figcaption></figure>';
+				.'<figcaption><h5>'. get_the_title() . '</h5><p>'. get_the_category()[0]->name. '</p></figcaption></figure>';
 			endwhile;
 			?>
 		</ul><?php
