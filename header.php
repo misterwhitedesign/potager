@@ -30,10 +30,29 @@
 		if (!$src) {
 			$src = wp_get_attachment_image_src($post_id)[0];
 		}
-		$background_image = 'style="background-image:url(\''.$src.'\');"';
+		?>
+		<style>
+		#page:before {
+  		filter:grayscale(1);
+  		content: "";
+  		position: fixed;
+  		left: 0;
+  		right: 0;
+  		z-index: -1;
+  		display: block;
+  		background-image: url('<?php echo $src?>');
+  		height: 100vh;
+  		width:auto;
+			background-repeat: no-repeat;
+			background-size: auto 100vh;
+			background-position:left top;
+			clip-path: polygon(0 0, 300px 0, 300px 100%, 0 100%);
+		}
+		</style>
+		<?php
 	}
 ?>
-<div id="page" class="site" <?php echo $background_image?>>
+<div id="page" class="site">
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home" itemprop="url">
