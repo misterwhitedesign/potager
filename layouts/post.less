@@ -1,22 +1,9 @@
 body {
   .projet {
-    .post-thumbnail {
-      width: 500px;
-      overflow: hidden;
-      position: absolute;
-      top:0px;
-      left:0px;
-      img.wp-post-image {
-        filter: grayscale(80%);
-        width: auto;
-        height:700px;
-        z-index: -1;
-      }
-    }
     .entry-header {
       width:100%;
-      padding-left: 32rem;
-      .entry-title {
+      h1.entry-title {
+        font-size: @headersize;
         margin-top:0;
         width:100%;
       }
@@ -27,7 +14,7 @@ body {
       p {
         line-height: 1.1rem;
         width: 100%;
-        margin-left: 35rem;
+        margin-left: 3*@goutiere;
       }
     }
   }
