@@ -14,49 +14,11 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php potager_post_thumbnail(); ?>
-
 	<div class="entry-content">
 		<?php
-		the_content();
+		if (! is_front_page()){
+				the_content();
+		}
 		?>
-	</div><!-- .entry-content --><?php
-	if ( is_front_page()) : ?>
-		<section class="projets">
-			<h2 class="gauche">Projets en cours<br>et passés</h2>
-			<?php
-			$projets = new WP_Query(array('post_type'=>'projet', 'post_status'=>'publish', 'posts_per_page'=>-1));
-			$index = 0;
-			while ( $projets->have_posts() ) :
-				$projets->the_post();
-				$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche");
-				echo '<figure class="'.$figure_class.'"><a href="' . get_permalink() . '">'
-				. get_the_post_thumbnail( get_the_ID(), 'medium' ).'</a>'
-				.'<figcaption><h5>'. get_the_title() . '</h5><p>'. get_the_category()[0]->name. '</p></figcaption></figure>';
-			endwhile;
-			?>
-		</ul><?php
-	endif;
-	if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'potager' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -1,3 +1,4 @@
+@import "constants";
 @import "font";
 @import "navigation";
 @import "home";
@@ -14,8 +15,24 @@ body {
     overflow-y: auto;
     height: 100%;
   }
+  .firstpage {
+    display: flex;
+  }
+  .leftcolumn {
+    vertical-align: top;
+    width: 35%;
+    min-width: 20rem;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: auto 100vh;
+    background-position:left top;
+    padding-top: @goutiere;
+    padding-left: @goutiere;
+    filter: grayscale(1);
+    flex:1;
+  }
   .site {
-    padding-left: 2.5rem;
+    width:auto;
   }
   .site-main {
     .entry-header {
@@ -24,6 +41,6 @@ body {
     }
   }
   img.custom-logo {
-    width: 100px;
+    width: 2*@goutiere;
   }
 }
