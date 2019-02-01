@@ -148,6 +148,40 @@ add_action( 'wp_enqueue_scripts', 'potager_scripts' );
 	 return $image[0];
  }
 
+
+function get_max_dimension($images, $idx){
+		$dims = array_map(function($image) use ($idx) {
+			$sizes = getimagesize($image['full_image_url']);
+		  return $sizes[$idx];
+		}, $images);
+		return max($dims);
+}
+/**
+ * get maximum ratios out of a set of images
+ */
+ function get_max_dimensions($images) {
+	return array(get_max_dimension($images, 0), get_max_dimension($images, 1));
+ }
+
+ function get_ratio($dim, $req, $max){
+	 $ratio = 1;
+	 error_log($dim.' '.$req.' '.$max);
+	 if ($dim > $req) {
+		 $ratio = $req / $max;
+	 }
+	 return $ratio;
+ }
+
+ /**
+ * get resized image based on max ratios (see above)
+ */
+ function resize_and_keepratio($image, $max_dimensions, $req_dimensions) {
+		$dimensions = getimagesize($image);
+		$dim_index = $dimensions[0] > $dimensions[1] ? 0 : 1;
+		$ratio = get_ratio($dimensions[$dim_index], $req_dimensions[$dim_index], $max_dimensions[$dim_index]);
+		return acf_photo_gallery_resize_image($image, $dimensions[0] * $ratio, $dimensions[1] * $ratio);
+ }
+
  function projet_module() {
 	 $args = array(
 		 'label' => __('Projets'),
@@ -167,6 +201,7 @@ add_action( 'wp_enqueue_scripts', 'potager_scripts' );
 //add_action("admin_init", "admin_init"); function pour ajouter des champs personnalisés
 //add_action('save_post', 'save_custom'); function pour la sauvegarde de nos champs personnalisés
 }
+
 add_action('init', 'projet_module');
 /**
  * Implement the Custom Header feature.

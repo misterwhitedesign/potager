@@ -37,15 +37,17 @@
  			?>
  			<section class="gallerie-projet">
  			<?php
+				//using 300 as max for width and height
+				$req_dimensions = array(500, 500);
+				$max_dimensions = get_max_dimensions ($images);
  				$index = 0;
  				//Cool, we got some data so now let's loop over it
  				foreach($images as $image):
  						$id = $image['id']; // The attachment id of the media
  						$title = $image['title']; //The title
  						$caption= $image['caption']; //The caption
- 						$full_image_url= $image['full_image_url']; //Full size image url
- 						$full_image_url = acf_photo_gallery_resize_image($full_image_url, 262, 160); //Resized size to 262px width by 160px height image url
- 						$thumbnail_image_url= $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
+ 						$full_image_url = $image['full_image_url']; //Full size image url
+ 						$full_image_url = resize_and_keepratio ($full_image_url, $max_dimensions, $req_dimensions);
  						$url= $image['url']; //Goto any link when clicked
  						$target= $image['target']; //Open normal or new tab
  						$alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
