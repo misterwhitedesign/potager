@@ -175,16 +175,27 @@ function get_max_dimension($images, $idx){
  /**
   * get class suffix depending on a given string
 	**/
- function get_figure_size_class($some_string) {
-	 	$r = strlen($some_string) % 3;
-		$class = array("small","mid","big")[$r];
-		return $class;
+ function get_figure_size_class_from_string($some_string) {
+		return get_figure_size_class(strlen($some_string));
+ }
+
+ function get_figure_size_class($number){
+	 $r = $number % 3;
+	 $class = array("small","mid","big")[$r];
+	 return $class;
+ }
+
+ function endsWith( $str, $sub ) {
+     return ( substr( $str, strlen( $str ) - strlen( $sub ) ) == $sub );
  }
 
  /**
  * get resized image based on max ratios (see above)
  */
  function resize_and_keepratio($image, $max_dimensions, $req_dimensions) {
+	  if (endsWith($image, ".gif")) {
+			return $image;
+		}
 		$dimensions = getimagesize($image);
 		$dim_index = $dimensions[0] > $dimensions[1] ? 0 : 1;
 		$ratio = get_ratio($dimensions[$dim_index], $req_dimensions[$dim_index], $max_dimensions[$dim_index]);

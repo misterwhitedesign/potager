@@ -22,7 +22,7 @@
 			$index = 0;
 			while ( $projets->have_posts() ) :
 				$projets->the_post();
-				$size = get_figure_size_class(get_the_title());
+				$size = get_figure_size_class_from_string(get_the_title());
 				$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche");
 				echo '<figure class="'.$figure_class.' '.$size.'"><a href="' . get_permalink() . '">'
 				. get_the_post_thumbnail( get_the_ID(), 'medium' ).'</a>'
@@ -47,11 +47,11 @@
  						$title = $image['title']; //The title
  						$caption= $image['caption']; //The caption
  						$full_image_url = $image['full_image_url']; //Full size image url
+						$size = get_figure_size_class(rand());
  						$full_image_url = resize_and_keepratio ($full_image_url, $max_dimensions, $req_dimensions);
  						$url= $image['url']; //Goto any link when clicked
  						$target= $image['target']; //Open normal or new tab
  						$alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
- 						$size = get_figure_size_class($url);
  						$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche")." ".$size;?>
  		<?php if( !empty($url) ){ ?><a href="<?php echo $url; ?>" <?php echo ($target == 'true' )? 'target="_blank"': ''; ?>><?php } ?>
  				<figure class="<?php echo $figure_class; ?>">
