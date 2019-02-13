@@ -1,9 +1,9 @@
 @import "constants";
 @import "font";
-@import "navigation";
+@import "header";
 @import "home";
 @import "gallery";
-@import "post";
+@import "projet";
 @import "footer";
 
 body {
@@ -11,6 +11,7 @@ body {
   margin-left: 0;
   height: 100vh;
   background: linear-gradient(#176f89, #2bd1aa);
+  width:100vw;
   .scroll {
     overflow-y: auto;
     height: 100%;
@@ -20,22 +21,21 @@ body {
   }
   .leftcolumn {
     vertical-align: top;
-    width: 35%;
-    min-width: 20rem;
-    max-width: 20rem;
     height: 100vh;
+    max-width: 30%;
+    min-width: 8.2 * @goutiere;
     background-repeat: no-repeat;
     background-size: auto 100vh;
     background-position:left top;
     padding-top: @goutiere;
     padding-left: @goutiere;
+    p {
+      margin-left: @goutiere;
+    }
     filter: grayscale(1);
   }
   .site {
-    width:70%;
+    flex: auto;
     z-index: 1;
-  }
-  img.custom-logo {
-    width: 2*@goutiere;
   }
 }

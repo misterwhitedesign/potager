@@ -21,6 +21,22 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<header id="masthead" class="site-header">
+		<div class="site-branding">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home" itemprop="url">
+				<img src="<?php echo esc_url( get_logo_url() ); ?>" class="custom-logo" alt="potager" itemprop="logo">
+			</a>
+		</div><!-- .site-branding -->
+		<nav id="site-navigation" class="main-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'potager' ); ?></button>
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'menu-1',
+				'menu_id'        => 'primary-menu',
+			) );
+			?>
+		</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
 	<div class="scroll">
 <?php
   $background_image = '';
@@ -42,27 +58,10 @@
 ?>
 <div class="firstpage">
 	<div class="leftcolumn">
-		<div class="site-branding">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home" itemprop="url">
-				<img src="<?php echo esc_url( get_logo_url() ); ?>" class="custom-logo" alt="potager" itemprop="logo">
-			</a>
-		</div><!-- .site-branding -->
 		<?php
 		if (is_front_page()) :
 				echo $post->post_content;
 		endif; ?>
 	</div>
 <div id="page" class="site">
-	<header id="masthead" class="site-header">
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'potager' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
 	<div id="content" class="site-content">

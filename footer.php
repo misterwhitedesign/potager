@@ -22,8 +22,9 @@
 			$index = 0;
 			while ( $projets->have_posts() ) :
 				$projets->the_post();
+				$size = get_figure_size_class(get_the_title());
 				$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche");
-				echo '<figure class="'.$figure_class.'"><a href="' . get_permalink() . '">'
+				echo '<figure class="'.$figure_class.' '.$size.'"><a href="' . get_permalink() . '">'
 				. get_the_post_thumbnail( get_the_ID(), 'medium' ).'</a>'
 				.'<figcaption><h5>'. get_the_title() . '</h5><p>'. get_the_category()[0]->name. '</p></figcaption></figure>';
 			endwhile;
@@ -37,7 +38,6 @@
  			?>
  			<section class="gallerie-projet">
  			<?php
-				//using 300 as max for width and height
 				$req_dimensions = array(500, 500);
 				$max_dimensions = get_max_dimensions ($images);
  				$index = 0;
@@ -51,8 +51,8 @@
  						$url= $image['url']; //Goto any link when clicked
  						$target= $image['target']; //Open normal or new tab
  						$alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
- 						$class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
- 						$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche");?>
+ 						$size = get_figure_size_class($url);
+ 						$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche")." ".$size;?>
  		<?php if( !empty($url) ){ ?><a href="<?php echo $url; ?>" <?php echo ($target == 'true' )? 'target="_blank"': ''; ?>><?php } ?>
  				<figure class="<?php echo $figure_class; ?>">
  					<img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">

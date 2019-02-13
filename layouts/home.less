@@ -1,15 +1,24 @@
 body.home {
-  .leftcolumn {
-    p {
-        padding-top: @goutiere/2;
-    }
-  }
   header.entry-header  {
-      padding-top:0;
+      margin-top: @goutiere;
       padding-left: @goutiere;
       h1 {
-        font-size: @headersize;
-        min-width: 30rem;
+        min-width: 50%;
+        max-width: 10 * @goutiere;
       }
+  }
+  .firstpage {
+    @media (max-width: @bp-mid) {
+      flex-direction:column-reverse;
+      .leftcolumn {
+          padding-top: 0;
+          max-width: 80%;
+          min-width: 80%;
+          p {
+            margin: 0 auto;
+            width: 80%;
+          }
+      }
+    }
   }
 }

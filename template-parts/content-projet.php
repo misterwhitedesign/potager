@@ -12,7 +12,8 @@
 	<?php
 		the_title( '<h1 class="entry-title">', '</h1>' );
 	?>
-	<div class="entry-content">
+	<div class="scroll-content">
+	 <div class="entry-content">
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -26,4 +27,6 @@
 			),
 			get_the_title()
 		) );?>
+	</div>
+</div>
 </article><!-- #post-<?php the_ID(); ?> -->

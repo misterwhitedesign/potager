@@ -1,9 +1,6 @@
 .projets, .gallerie-projet {
   padding-top: @goutiere;
   overflow: hidden;
-  h2 {
-    font-size:80px;
-  }
   .gauche {
     float: left;
   }
@@ -13,21 +10,27 @@
   .gauche,.droite {
     margin: @goutiere;
   }
-  figure {
+  .small {
+    width:10%;
+  }
+  .mid {
+    width:20%;
+  }
+  .big {
+    width:40%;
+  }
+  .small,.mid,.big {
     img {
-      max-width: 600px;
-      min-width: 400px;
+      width:90%;
       height: auto;
     }
   }
   figcaption {
       h5 {
-        font-size: 40px;
         max-width: 500px;
         margin:0;
       }
       p {
-        font-size: 20px;
         margin:0;
       }
   }

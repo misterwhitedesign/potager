@@ -163,13 +163,22 @@ function get_max_dimension($images, $idx){
 	return array(get_max_dimension($images, 0), get_max_dimension($images, 1));
  }
 
- function get_ratio($dim, $req, $max){
+ function get_ratio($dim, $req, $max) {
 	 $ratio = 1;
 	 error_log($dim.' '.$req.' '.$max);
 	 if ($dim > $req) {
 		 $ratio = $req / $max;
 	 }
 	 return $ratio;
+ }
+
+ /**
+  * get class suffix depending on a given string
+	**/
+ function get_figure_size_class($some_string) {
+	 	$r = strlen($some_string) % 3;
+		$class = array("small","mid","big")[$r];
+		return $class;
  }
 
  /**

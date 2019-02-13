@@ -1,0 +1,31 @@
+body {
+  .single-projet {
+    .leftcolumn {
+      width: 8.2 * @goutiere;
+    }
+  }
+  .projet {
+    padding-right: 3*@goutiere;
+
+    h1.entry-title {
+      font-size: @headersize;
+      margin-top:2rem;
+      margin-bottom:0;
+      text-align:right;
+      width: 170%;
+      min-width: 770px;
+    }
+    .scroll-content {
+      float: right;
+      clear: right;
+      max-width: 30%;
+      min-width: 8.2 * @goutiere;
+      overflow-y: scroll;
+      .entry-content {
+        p {
+          line-height: 1.3rem;
+        }
+      }
+    }
+  }
+}

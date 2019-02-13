@@ -1,12 +1,17 @@
-body {
-  nav.main-navigation {
-    padding-top: 2.5em;
-    float: right;
-    margin-right: .7 * @goutiere;
-    width: 694px;
-    @media (max-width: @bp-wide) {
-        width: 480px;
-    }
+header.site-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display:flex;
+  z-index: 2;
+  padding-top: @goutiere;
+  img.custom-logo {
+    padding-left: @goutiere;
+    width: 2*@goutiere;
+  }
+  nav {
+    flex: auto;
+    padding-right: .7 * @goutiere;
     .menu-toggle {
       display: none;
       @media(max-width: @bp-small){
@@ -14,6 +19,8 @@ body {
       }
     }
     ul.nav-menu {
+      width: 65%;
+      float: right;
       @media(max-width: @bp-small){
         display: none;
       }
