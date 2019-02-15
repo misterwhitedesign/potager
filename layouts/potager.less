@@ -1,4 +1,5 @@
 @import "constants";
+@import "blocks";
 @import "font";
 @import "header";
 @import "home";
@@ -37,5 +38,11 @@ body {
   .site {
     flex: auto;
     z-index: 1;
+    @media (max-width: @bp-wide) {
+      margin-top: @goutiere;
+    }
+    @media (max-width: @bp-mid) {
+      margin-top: 2 * @goutiere;
+    }
   }
 }

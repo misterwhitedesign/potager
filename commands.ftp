@@ -1,10 +1,5 @@
 put -r js
-put -r inc
-put -r languages
 put -r layouts
 put -r template-parts
-put -r vendor
-put style.css
-put screenshot.png
 put *.php
 exit

@@ -1,0 +1,15 @@
+.is-style-potager-1,.is-style-potager-2,.is-style-potager-3 {
+  text-decoration: underline;
+}
+
+.is-style-potager-1 {
+  font-size: 3.125rem;
+}
+
+.is-style-potager-2 {
+  font-size: 2.1rem;
+}
+
+.is-style-potager-3 {
+  font-size: 1.5625rem;
+}

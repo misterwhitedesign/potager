@@ -99,23 +99,23 @@ function potager_content_width() {
 add_action( 'after_setup_theme', 'potager_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * Plugin Name: Block Styles
  */
-function potager_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'potager' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'potager' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+/**
+ * Enqueue JavaScript
+ */
+function block_styles_enqueue_javascript() {
+    wp_enqueue_script( 'block-styles-script',
+        get_template_directory_uri() . '/js/blocks.js',
+        array( 'wp-blocks')
+    );
 }
-add_action( 'widgets_init', 'potager_widgets_init' );
+add_action( 'enqueue_block_editor_assets', 'block_styles_enqueue_javascript' );
 
+function block_styles_enqueue_potager_stylesheet() {
+    wp_enqueue_style( 'potager-style', get_template_directory_uri() . '/layouts/blocks.css');
+}
+add_action( 'enqueue_block_assets', 'block_styles_enqueue_potager_stylesheet' );
 /**
  * Enqueue scripts and styles.
  */
@@ -223,6 +223,9 @@ function get_max_dimension($images, $idx){
 }
 
 add_action('init', 'projet_module');
+
+
+
 /**
  * Implement the Custom Header feature.
  */
