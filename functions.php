@@ -112,9 +112,6 @@ function block_styles_enqueue_javascript() {
 }
 add_action( 'enqueue_block_editor_assets', 'block_styles_enqueue_javascript' );
 
-function block_styles_enqueue_potager_stylesheet() {
-    wp_enqueue_style( 'potager-style', get_template_directory_uri() . '/layouts/blocks.css');
-}
 add_action( 'enqueue_block_assets', 'block_styles_enqueue_potager_stylesheet' );
 /**
  * Enqueue scripts and styles.
@@ -165,7 +162,6 @@ function get_max_dimension($images, $idx){
 
  function get_ratio($dim, $req, $max) {
 	 $ratio = 1;
-	 error_log($dim.' '.$req.' '.$max);
 	 if ($dim > $req) {
 		 $ratio = $req / $max;
 	 }
@@ -196,10 +192,13 @@ function get_max_dimension($images, $idx){
 	  if (endsWith($image, ".gif")) {
 			return $image;
 		}
-		$dimensions = getimagesize($image);
-		$dim_index = $dimensions[0] > $dimensions[1] ? 0 : 1;
-		$ratio = get_ratio($dimensions[$dim_index], $req_dimensions[$dim_index], $max_dimensions[$dim_index]);
-		return acf_photo_gallery_resize_image($image, $dimensions[0] * $ratio, $dimensions[1] * $ratio);
+		if (strlen($image) > 0){
+			$dimensions = getimagesize($image);
+			$dim_index = $dimensions[0] > $dimensions[1] ? 0 : 1;
+			$ratio = get_ratio($dimensions[$dim_index], $req_dimensions[$dim_index], $max_dimensions[$dim_index]);
+			return acf_photo_gallery_resize_image($image, $dimensions[0] * $ratio, $dimensions[1] * $ratio);
+		}
+		return $image;
  }
 
  function projet_module() {
