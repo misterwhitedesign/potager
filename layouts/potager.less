@@ -10,9 +10,9 @@
 body {
   margin-top: 0;
   margin-left: 0;
+  width:100vw;
   height: 100vh;
   background: linear-gradient(#176f89, #2bd1aa);
-  width:100vw;
   .scroll {
     overflow-y: auto;
     height: 100%;
@@ -22,18 +22,13 @@ body {
   }
   .leftcolumn {
     vertical-align: top;
+    width: 10 * @goutiere;
     height: 100vh;
-    max-width: 30%;
-    min-width: 8.2 * @goutiere;
-    background-repeat: no-repeat;
-    background-size: auto 100vh;
-    background-position:left top;
     padding-top: 3 * @goutiere;
     padding-left: @goutiere;
     p {
       margin-left: @goutiere;
     }
-    filter: grayscale(1);
   }
   .site {
     flex: auto;

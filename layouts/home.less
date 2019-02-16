@@ -3,11 +3,15 @@ body.home {
       margin-top: @goutiere;
       padding-left: @goutiere;
       h1 {
-        min-width: 50%;
         max-width: 10 * @goutiere;
       }
   }
   .firstpage {
+      .leftcolumn {
+        p {
+          width: 8.2 * @goutiere;
+        }
+      }
     @media (max-width: @bp-mid) {
       flex-direction:column-reverse;
       .leftcolumn {
