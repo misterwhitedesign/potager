@@ -136,6 +136,14 @@ function potager_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'potager_scripts' );
 
+
+
+// Function for basic field validation (present and neither empty nor only white space
+function IsNullOrEmptyString($str){
+    return (!isset($str) || trim($str) === '');
+}
+
+
 /**
  * retrieves logo url
  **/
@@ -168,16 +176,12 @@ function get_max_dimension($images, $idx){
 	 return $ratio;
  }
 
- /**
-  * get class suffix depending on a given string
-	**/
- function get_figure_size_class_from_string($some_string) {
-		return get_figure_size_class(strlen($some_string));
- }
-
- function get_figure_size_class($number){
-	 $r = $number % 3;
-	 $class = array("small","mid","big")[$r];
+ function get_figure_size($default_value){
+	 $class = $default_value;
+	 if (IsNullOrEmptyString($class)){
+		 $r = rand(0,2);
+		 $class = array("small","mid","big")[$r];
+	 }
 	 return $class;
  }
 
@@ -200,6 +204,12 @@ function get_max_dimension($images, $idx){
 		}
 		return $image;
  }
+
+function my_extra_gallery_fields( $args, $attachment_id, $field ){
+    $args['taille_imagette'] = array('type' => 'text', 'label' => 'Taille imagette', 'name' => 'taille_imagette', 'value' => get_field($field . 'taille_imagette', $attachment_id) );
+    return $args;
+}
+add_filter( 'acf_photo_gallery_image_fields', 'my_extra_gallery_fields', 10, 3 );
 
  function projet_module() {
 	 $args = array(
