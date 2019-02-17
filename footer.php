@@ -52,7 +52,7 @@
  						$title = $image['title']; //The title
  						$caption= $image['caption']; //The caption
  						$full_image_url = $image['full_image_url']; //Full size image url
-						$size = get_figure_size(get_field("taille_imagette"));
+						$size = get_figure_size(get_field("taille_imagette", $id));
  						$full_image_url = resize_and_keepratio ($full_image_url, $max_dimensions, $req_dimensions);
  						$url= $image['url']; //Goto any link when clicked
  						$target= $image['target']; //Open normal or new tab
