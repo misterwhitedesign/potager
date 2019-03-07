@@ -98,21 +98,33 @@ function potager_content_width() {
 }
 add_action( 'after_setup_theme', 'potager_content_width', 0 );
 
-/**
- * Plugin Name: Block Styles
- */
-/**
- * Enqueue JavaScript
- */
-function block_styles_enqueue_javascript() {
-    wp_enqueue_script( 'block-styles-script',
-        get_template_directory_uri() . '/js/blocks.js',
-        array( 'wp-blocks')
-    );
-}
-add_action( 'enqueue_block_editor_assets', 'block_styles_enqueue_javascript' );
+wp_enqueue_style( 'potager-style', get_template_directory_uri() . '/layouts/potager.less' );
 
-add_action( 'enqueue_block_assets', 'block_styles_enqueue_potager_stylesheet' );
+add_action( 'enqueue_block_editor_assets', function() {
+	$styles_js_path = get_template_directory_uri() . '/js/styles.js';
+	wp_enqueue_script(
+		'advanced-rich-text-tools',
+		 $styles_js_path,
+		array(
+			'wp-element',
+			'wp-rich-text',
+			'wp-format-library',
+			'wp-i18n',
+			'wp-editor',
+			'wp-compose',
+			'wp-components',
+		),
+		'20151215',
+		true
+	);
+	$styles_css_path = get_template_directory_uri() . '/layouts/styles.css';
+	wp_enqueue_style(
+		'advanced-rich-text-tools',
+		$styles_css_path,
+		array(),
+		'20151215'
+	);
+});
 /**
  * Enqueue scripts and styles.
  */
@@ -124,8 +136,6 @@ function potager_scripts() {
 	$less = WPLessPlugin::getInstance();
 	$less->dispatch();
 
-	wp_enqueue_style( 'potager-style', get_template_directory_uri() . '/layouts/potager.less' );
-
 	wp_enqueue_script( 'potager-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'potager-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -135,13 +145,6 @@ function potager_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'potager_scripts' );
-
-
-
-// Function for basic field validation (present and neither empty nor only white space
-function IsNullOrEmptyString($str){
-    return (!isset($str) || trim($str) === '');
-}
 
 
 /**
@@ -174,6 +177,11 @@ function get_max_dimension($images, $idx){
 		 $ratio = $req / $max;
 	 }
 	 return $ratio;
+ }
+
+ // Function for basic field validation (present and neither empty nor only white space
+ function IsNullOrEmptyString($str){
+     return (!isset($str) || trim($str) === '');
  }
 
  function get_figure_size($default_value){

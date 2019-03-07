@@ -1,13 +1,18 @@
 @import "constants";
-@import "blocks";
 @import "font";
 @import "header";
 @import "home";
 @import "gallery";
 @import "projet";
 @import "footer";
+@import "styles";
 
 body {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
   margin-top: 0;
   margin-left: 0;
   width:100vw;
@@ -20,14 +25,24 @@ body {
   .firstpage {
     display: flex;
   }
+
   .leftcolumn {
     vertical-align: top;
-    width: 10 * @goutiere;
-    min-width: 10 * @goutiere;
+    width: 11 * @goutiere;
+    min-width: 11 * @goutiere;
     height: 100vh;
     padding-top: 3 * @goutiere;
     padding-left: @goutiere;
   }
+
+  .entry-content {
+    max-width: 30%;
+    min-width: 8.2 * @goutiere;
+    p {
+      line-height: 1.3rem;
+    }
+  }
+
   .site {
     flex: auto;
     z-index: 1;

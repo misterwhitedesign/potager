@@ -40,7 +40,7 @@
 	<div class="scroll">
 <?php
   $background_image = '';
-	if ($post) {
+	if ($post && ! is_home() && ! is_front_page()) {
 		$post_id = get_post_thumbnail_id( $post );
 	  $src = get_field('image_principale')['url'];
 		if (!$src) {

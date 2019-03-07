@@ -14,9 +14,6 @@ body {
       }
     }
     ul.nav-menu {
-      @media(max-width: @bp-small){
-        display: none;
-      }
       list-style: none;
       display: flex;
       justify-content: space-evenly;
@@ -24,6 +21,19 @@ body {
         a {
           text-decoration: none;
           color: white;
+        }
+      }
+    }
+    @media(max-width: @bp-small){
+      ul.nav-menu {
+          display: none;
+      }
+      ul.nav-menu.toggled {
+        display: flex;
+        flex-direction: column;
+        li {
+          background-color: blue;
+          width:100%;
         }
       }
     }
