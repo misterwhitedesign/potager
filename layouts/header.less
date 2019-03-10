@@ -12,14 +12,18 @@ header.site-header {
   nav {
     flex: auto;
     padding-right: .7 * @goutiere;
-    .menu-toggle {
+    button.menu-toggle {
       display: none;
       @media(max-width: @bp-small){
         display: block;
+        float: right;
       }
     }
     ul.nav-menu {
       width: 65%;
+      @media(max-width: @bp-mid){
+        width: 100%;
+      }
       float: right;
       @media(max-width: @bp-small){
         display: none;

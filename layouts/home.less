@@ -11,14 +11,16 @@ body.home {
         }
       }
     @media (max-width: @bp-mid) {
-      flex-direction:column-reverse;
-      .leftcolumn {
-          padding-top: 0;
-          padding-left: 0.5 * @goutiere;
-          max-width: 90%;
-          min-width: 90%;
-          p {
-            margin: 0 auto;
+      .two-columns {
+          flex-direction:column-reverse;
+          .leftcolumn {
+              padding-top: 0;
+              padding-left: 0.5 * @goutiere;
+              max-width: 90%;
+              min-width: 90%;
+              p {
+                margin: 0 auto;
+              }
           }
       }
     }

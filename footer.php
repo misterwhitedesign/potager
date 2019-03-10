@@ -10,10 +10,9 @@
  */
 
 ?>
-			</div><!-- #content -->
-	  </div><!-- #page -->
-	</div><!-- .2 columns>
-</div><!-- .firstpage-->
+			</div>
+	  </div>
+	</div>
 	<?php
 	if ( is_front_page()) : ?>
 		<section class="projets">
