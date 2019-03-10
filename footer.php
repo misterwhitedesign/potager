@@ -10,8 +10,9 @@
  */
 
 ?>
-		</div><!-- #content -->
-  </div><!-- #page -->
+			</div><!-- #content -->
+	  </div><!-- #page -->
+	</div><!-- .2 columns>
 </div><!-- .firstpage-->
 	<?php
 	if ( is_front_page()) : ?>

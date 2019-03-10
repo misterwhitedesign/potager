@@ -8,10 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" style="background-image=url('<?php echo $src ?>')" <?php post_class(); ?>>
-	<?php
-		the_title( '<h1 class="entry-title">', '</h1>' );
-	?>
+<article id="post-<?php the_ID(); ?>" style="background-image=url('<?php echo $src ?>')" <?php post_class(); ?>>	
 	<div class="scroll-content">
 	 <div class="entry-content">
 		<?php

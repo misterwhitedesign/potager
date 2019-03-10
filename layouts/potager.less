@@ -18,41 +18,54 @@ body {
   width:100vw;
   height: 100vh;
   background: linear-gradient(#176f89, #2bd1aa);
+
   .scroll {
     overflow-y: auto;
     height: 100%;
   }
   .firstpage {
+    max-width: 25 * @goutiere;
+    padding-right: @goutiere;
+    position: relative;
+  }
+  h1.entry-title {
+    margin-top: 2 * @goutiere;
+    margin-bottom:0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    z-index: 1;
+  }
+  .two-columns {
     display: flex;
   }
 
   .leftcolumn {
     vertical-align: top;
-    width: 11 * @goutiere;
     min-width: 11 * @goutiere;
     height: 100vh;
     padding-top: 3 * @goutiere;
     padding-left: @goutiere;
+    z-index: -1;
   }
 
-  .entry-content {
-    max-width: 30%;
-    min-width: 8.2 * @goutiere;
-    p {
-      line-height: 1.3rem;
-    }
-  }
-
-  .site {
-    flex: auto;
-    z-index: 1;
-    margin-left: @goutiere * 3 / 5;
-    padding-right: @goutiere;
+  .rightcolumn {
+    padding-top: @goutiere;
     @media (max-width: @bp-wide) {
       margin-top: @goutiere;
     }
     @media (max-width: @bp-mid) {
       margin-top: 2 * @goutiere;
+    }
+  }
+  .entry-content {
+    max-width: 30%;
+    min-width: 8.2 * @goutiere;
+    position: absolute;
+    right: 0;
+
+    p {
+      line-height: 1.3rem;
     }
   }
 }

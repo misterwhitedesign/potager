@@ -60,11 +60,21 @@
 	}
 ?>
 <div class="firstpage">
-	<div class="leftcolumn">
-		<?php
-		if (is_front_page()) :
-				echo $post->post_content;
-		endif; ?>
-	</div>
-<div id="page" class="site">
-	<div id="content" class="site-content">
+	<?php
+		if ($post && ! is_home() && ! is_front_page()) {
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		}
+	?>
+	<div class="two-columns">
+		<div class="leftcolumn">
+			<?php
+			if (is_front_page()) :
+					echo $post->post_content;
+			endif; ?>
+		</div>
+		<div class="rightcolumn">
+			<?php
+			if (is_front_page()) {
+				the_title( '<h1 class="home-title">', '</h1>' );
+			}
+			?>
