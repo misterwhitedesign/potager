@@ -53,7 +53,6 @@
  						$caption= $image['caption']; //The caption
  						$full_image_url = $image['full_image_url']; //Full size image url
 						$size = get_figure_size(get_field("taille_imagette", $id));
- 						$full_image_url = resize_and_keepratio ($full_image_url, $max_dimensions, $req_dimensions);
  						$url= $image['url']; //Goto any link when clicked
  						$target= $image['target']; //Open normal or new tab
  						$alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
@@ -71,7 +70,7 @@
 		<p>
 			© potager liberté   /  Mentions légales
 		</p>
-	</footer><!-- #colophon -->
+	</footer>
 <?php wp_footer(); ?>
 </div>
 </body>

@@ -227,6 +227,7 @@ add_filter( 'acf_photo_gallery_image_fields', 'my_extra_gallery_fields', 10, 3 )
 		 'show_ui' => true,
 		 '_builtin' => false,
 		 '_edit_link' => 'post.php?post=%d',
+		 'show_in_rest' => true,
 		 'capability_type' => 'post',
 		 'rewrite' => array("slug" => "projets"),
 		 'query_var' => "projets",

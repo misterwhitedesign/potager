@@ -26,17 +26,20 @@
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="custom-logo-link" rel="home" itemprop="url">
 				<img src="<?php echo esc_url( get_logo_url() ); ?>" class="custom-logo" alt="potager" itemprop="logo">
 			</a>
-		</div><!-- .site-branding -->
+		</div>
 		<nav id="site-navigation" class="main-navigation">
 			<?php
-			wp_nav_menu( array(
+			$menu = wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
 			) );
+			$menu_src = get_field('hamburger', 'menu-1');
 			?>
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'potager' ); ?></button>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+			<button class="menu-toggle"
+							aria-controls="primary-menu" aria-expanded="false"
+							style="background: url(<?php echo $menu_src ?>)"></button>
+		</nav>
+	</header>
 	<div class="scroll">
 <?php
   $background_image = '';
