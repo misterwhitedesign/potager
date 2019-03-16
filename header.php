@@ -49,7 +49,6 @@
 		if (!$src) {
 			$src = wp_get_attachment_image_src($post_id)[0];
 		}
-		$src = resize_and_keepratio($src, array(700,700), array(700,700));
 		$dims = getimagesize($src);
 		$bgsize = ($dims[0] * 800 / $dims[1]) < 500 ? "550px auto" : "auto 100vh";
 		?>
