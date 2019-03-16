@@ -50,12 +50,10 @@
 			$src = wp_get_attachment_image_src($post_id)[0];
 		}
 		$dims = getimagesize($src);
-		$bgsize = ($dims[0] * 800 / $dims[1]) < 500 ? "550px auto" : "auto 100vh";
 		?>
 		<style>
 		.leftcolumn {
-  		background-image: url('<?php echo $src?>');
-			background-size: <?php echo $bgsize?>;
+  		background-image: url('<?php echo $src?>');			
 		}
 		</style>
 		<?php
