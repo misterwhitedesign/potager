@@ -22,6 +22,15 @@ body {
   .scroll {
     overflow-y: auto;
     height: 100%;
+    h1.entry-title {
+      padding-right: @goutiere;
+      margin-top: 2 * @goutiere;
+      margin-bottom:0;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      z-index: 1;
+    }
     .firstpage {
       max-width: 25 * @goutiere;
       padding-right: @goutiere;
@@ -50,23 +59,14 @@ body {
           @media (max-width: @bp-mid) {
             margin-top: 2 * @goutiere;
           }
+        }
       }
     }
-  }
 
-  h1.entry-title {
-    margin-top: 2 * @goutiere;
-    margin-bottom:0;
-    position: absolute;
-    right: 0;
-    text-align: right;
-    z-index: 1;
-  }
-
-  }
-  .entry-content {
-    max-width: 30%;
-    min-width: 8.2 * @goutiere;
-    float:right;
+    .entry-content {
+      max-width: 30%;
+      min-width: 8.2 * @goutiere;
+      float:right;
+    }
   }
 }
