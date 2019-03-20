@@ -41,7 +41,7 @@
  		//Check if return array has anything in it
  		if( count($images) ):
  			?>
- 			<section class="gallerie-projet">
+ 			<section class="gallerie-projet" data-featherlight-gallery data-featherlight-filter="a">
  			<?php
 				$req_dimensions = array(500, 500);
 				$max_dimensions = get_max_dimensions ($images);
@@ -57,11 +57,11 @@
  						$target= $image['target']; //Open normal or new tab
  						$alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
  						$figure_class = ($index++ % 2 == 0 ? "droite" : "gauche")." ".$size;?>
- 		<?php if( !empty($url) ){ ?><a href="<?php echo $url; ?>" <?php echo ($target == 'true' )? 'target="_blank"': ''; ?>><?php } ?>
- 				<figure class="<?php echo $figure_class; ?>">
+ 		<a class="gallery" href="#<?php echo $id; ?>">
+ 				<figure id="<?php echo $id; ?>" class="<?php echo $figure_class; ?>">
  					<img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
  				</figure>
- 		<?php if( !empty($url) ){ ?></a><?php } ?>
+ 		</a>
  <?php endforeach; ?>
  	</section>
 <?php endif; endif;?>
@@ -73,5 +73,9 @@
 	</footer>
 <?php wp_footer(); ?>
 </div>
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

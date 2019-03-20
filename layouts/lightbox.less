@@ -1,0 +1,29 @@
+.featherlight-content {
+  figure {
+    img {
+      width:100%;
+    }
+  }
+  .featherlight-next:hover, .featherlight-previous:hover {
+    background: rgba(255,255,255,.02);
+  }
+  .featherlight-previous:hover {
+    cursor: w-resize
+  }
+  .featherlight-next:hover {
+    cursor: e-resize
+  }
+  .featherlight-previous {
+    right: 50%;
+  }
+  .featherlight-next {
+    left: 50%;
+  }
+  .featherlight-next, .featherlight-previous {
+    span {
+      img.emoji {
+        display: none !important;
+      }
+    }
+  }
+}
