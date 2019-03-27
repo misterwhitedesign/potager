@@ -236,12 +236,29 @@ add_filter( 'acf_photo_gallery_image_fields', 'my_extra_gallery_fields', 10, 3 )
 	 );
 	 register_post_type( 'projet' , $args );
 	 register_taxonomy_for_object_type('post_tag', 'projet','show_tagcloud=1&hierarchical=true');
-//add_action("admin_init", "admin_init"); function pour ajouter des champs personnalisés
-//add_action('save_post', 'save_custom'); function pour la sauvegarde de nos champs personnalisés
 }
 
 add_action('init', 'projet_module');
 
+function animal_module() {
+	$args = array(
+		'label' => __('Animaux'),
+		'singular_label' => __('Animal'),
+		'show_ui' => true,
+		'public' => true,
+		'_builtin' => false,
+		'_edit_link' => 'post.php?post=%d',
+		'show_in_rest' => true,
+		'capability_type' => 'post',
+		'query_var' => "animaux",
+		'supports' => array('title'),
+		'taxonomies' => array( 'category' )
+	);
+	register_post_type( 'animal' , $args );
+	register_taxonomy_for_object_type('post_tag', 'animal');
+}
+
+add_action('init', 'animal_module');
 
 
 /**

@@ -1,0 +1,74 @@
+.animal {
+  z-index: 5;
+  position:absolute;
+}
+.animal.petite {
+  width: 2%;
+  height: auto;
+}
+.animal.moyenne {
+  width: 4%;
+  height: auto;
+}
+.animal.grande {
+  width: 8%;
+  height: auto;
+}
+
+@keyframes bounce {
+   0%, 20%, 55%, 75%, 100% {transform: translateY(0);}
+   40% {transform: translateY(-3 * @goutiere);}
+   60% {transform: translateY(-2 * @goutiere);}
+}
+
+.animal.petite.puce {
+  animation: 10s infinite ease-in alternate bounce;
+}
+
+@keyframes riseturn {
+  from { transform: rotate(0) translateY(15*@goutiere); }
+  to   { transform: rotate(10turn) translateY(0); }
+}
+
+.animal.hirondelle {
+  animation: 20s infinite ease-in alternate riseturn;
+}
+
+.animal.go-down {
+  top:-600px;
+  @keyframes fall {
+    from { transform: translateY(0%); }
+    to   { transform: translateY(30*@goutiere); }
+  }
+}
+
+.animal.martin {
+  animation: 15s 2 alternate fall;
+}
+
+.animal.go-up {
+  bottom: 0;
+  @keyframes up {
+    from { transform: translateX(30*@goutiere); }
+    to   { transform: translateX(0%); }
+  }
+  animation: 20s 2 alternate up;
+}
+
+.animal.go-left {
+  right:20*@goutiere;
+  @keyframes left {
+    from { transform: translateX(50*@goutiere); }
+    to   { transform: translateX(0%); }
+  }
+  animation: 18s infinite left;
+}
+
+.animal.go-right {
+  left:-600px;
+  @keyframes right {
+    from { transform: translateX(0%); }
+    to   { transform: translateX(50*@goutiere); }
+  }
+  animation: 17s infinite right;
+}
