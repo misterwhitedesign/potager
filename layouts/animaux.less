@@ -7,12 +7,10 @@
   height: auto;
 }
 .animal.moyenne {
-  width: 4%;
+  width: 20%;
   height: auto;
 }
 .animal.grande {
-  width: 8%;
-  height: auto;
 }
 
 @keyframes bounce {
@@ -32,6 +30,17 @@
 
 .animal.hirondelle {
   animation: 20s infinite ease-in alternate riseturn;
+}
+
+@keyframes bumpturn {
+  0% {transform: translateX(50*@goutiere);}
+  20%, 40%, 60%, 80% {transform: scale(0.5) rotateZ(1turn);}
+  10%, 30%, 50%, 70%, 90% {transform: scale(1) rotateZ(2turn);}
+  100% {transform: translateX(0) scale(0.5) rotateZ(1turn);}
+}
+
+.animal.sifilet {
+  animation: 20s infinite ease-in bumpturn;
 }
 
 .animal.go-down {
