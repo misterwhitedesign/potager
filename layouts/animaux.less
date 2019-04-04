@@ -1,83 +1,87 @@
-.animal {
-  z-index: 5;
+.ferme {
+  height:0;
   position:absolute;
-}
-.animal.petite {
-  width: 2%;
-  height: auto;
-}
-.animal.moyenne {
-  width: 20%;
-  height: auto;
-}
-.animal.grande {
-}
-
-@keyframes bounce {
-   0%, 20%, 55%, 75%, 100% {transform: translateY(0);}
-   40% {transform: translateY(-3 * @goutiere);}
-   60% {transform: translateY(-2 * @goutiere);}
-}
-
-.animal.petite.puce {
-  animation: 10s infinite ease-in alternate bounce;
-}
-
-@keyframes riseturn {
-  from { transform: rotate(0) translateY(15*@goutiere); }
-  to   { transform: rotate(10turn) translateY(0); }
-}
-
-.animal.hirondelle {
-  animation: 20s infinite ease-in alternate riseturn;
-}
-
-@keyframes bumpturn {
-  0% {transform: translateX(50*@goutiere);}
-  20%, 40%, 60%, 80% {transform: scale(0.5) rotateZ(1turn);}
-  10%, 30%, 50%, 70%, 90% {transform: scale(1) rotateZ(2turn);}
-  100% {transform: translateX(0) scale(0.5) rotateZ(1turn);}
-}
-
-.animal.sifilet {
-  animation: 20s infinite ease-in bumpturn;
-}
-
-.animal.go-down {
-  top:-600px;
-  @keyframes fall {
-    from { transform: translateY(0%); }
-    to   { transform: translateY(30*@goutiere); }
+  .animal {
+    z-index: 5;
+    position:absolute;
   }
-}
-
-.animal.martin {
-  animation: 15s 2 alternate fall;
-}
-
-.animal.go-up {
-  bottom: 0;
-  @keyframes up {
-    from { transform: translateX(30*@goutiere); }
-    to   { transform: translateX(0%); }
+  .animal.petite {
+    width: 2%;
+    height: auto;
   }
-  animation: 20s 2 alternate up;
-}
-
-.animal.go-left {
-  right:20*@goutiere;
-  @keyframes left {
-    from { transform: translateX(50*@goutiere); }
-    to   { transform: translateX(0%); }
+  .animal.moyenne {
+    width: 20%;
+    height: auto;
   }
-  animation: 18s infinite left;
-}
-
-.animal.go-right {
-  left:-600px;
-  @keyframes right {
-    from { transform: translateX(0%); }
-    to   { transform: translateX(50*@goutiere); }
+  .animal.grande {
   }
-  animation: 17s infinite right;
+
+  @keyframes bounce {
+     0%, 20%, 55%, 75%, 100% {transform: translateY(0);}
+     40% {transform: translateY(-3 * @goutiere);}
+     60% {transform: translateY(-2 * @goutiere);}
+  }
+
+  .animal.petite.puce {
+    animation: 10s infinite ease-in alternate bounce;
+  }
+
+  @keyframes riseturn {
+    from { transform: rotate(0) translateY(15*@goutiere); }
+    to   { transform: rotate(10turn) translateY(0); }
+  }
+
+  .animal.hirondelle {
+    animation: 20s infinite ease-in alternate riseturn;
+  }
+
+  @keyframes bumpturn {
+    0% {transform: translateX(50*@goutiere);}
+    20%, 40%, 60%, 80% {transform: scale(0.5) rotateZ(1turn);}
+    10%, 30%, 50%, 70%, 90% {transform: scale(1) rotateZ(2turn);}
+    100% {transform: translateX(0) scale(0.5) rotateZ(1turn);}
+  }
+
+  .animal.sifilet {
+    animation: 20s infinite ease-in bumpturn;
+  }
+
+  .animal.go-down {
+    top:-600px;
+    @keyframes fall {
+      from { transform: translateY(0%); }
+      to   { transform: translateY(30*@goutiere); }
+    }
+  }
+
+  .animal.martin {
+    animation: 15s 2 alternate fall;
+  }
+
+  .animal.go-up {
+    bottom: 0;
+    @keyframes up {
+      from { transform: translateX(30*@goutiere); }
+      to   { transform: translateX(0%); }
+    }
+    animation: 20s 2 alternate up;
+  }
+
+  .animal.go-left {
+    right:20*@goutiere;
+    @keyframes left {
+      from { transform: translateX(50*@goutiere); }
+      to   { transform: translateX(0%); }
+    }
+    animation: 18s infinite left;
+  }
+
+  .animal.go-right {
+    left:-600px;
+    @keyframes right {
+      from { transform: translateX(0%); }
+      to   { transform: translateX(50*@goutiere); }
+    }
+    animation: 17s infinite right;
+  }
 }

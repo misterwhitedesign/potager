@@ -1,30 +1,40 @@
-.featherlight-content {
+.featherlight {
+  .featherlight-content {
+    background: rgba(0,0,0,.02);
 
-  figure {
-    img {
-      width:100%;
+    figure {
+      img {
+        width:100%;
+      }
     }
-  }
 
-  .featherlight-next:hover, .featherlight-previous:hover {
-    background: rgba(255,255,255,.02);
-  }
-  .featherlight-previous:hover {
-    cursor: w-resize
-  }
-  .featherlight-next:hover {
-    cursor: e-resize
-  }
-  .featherlight-previous {
-    right: 50%;
-  }
-  .featherlight-next {
-    left: 50%;
-  }
-  .featherlight-next, .featherlight-previous {
-    span {
-      img.emoji {
-        display: none !important;
+    .featherlight-close-icon {
+      background: url("./fermer.svg");
+    }
+
+    .featherlight-next:hover, .featherlight-previous:hover {
+      background: rgba(255,255,255,.02);
+    }
+
+    .featherlight-previous > span {
+      background: url('./fleche-gauche.svg');
+      background-repeat :no-repeat;
+    }
+    .featherlight-next > span {
+      background: url('./fleche-droite.svg');
+      background-repeat :no-repeat;
+    }
+    .featherlight-previous {
+      right: 50%;
+    }
+    .featherlight-next {
+      left: 50%;
+    }
+    .featherlight-next, .featherlight-previous {
+      span {
+        img.emoji {
+
+        }
       }
     }
   }
