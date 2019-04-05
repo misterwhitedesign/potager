@@ -156,6 +156,14 @@ add_action( 'wp_enqueue_scripts', 'potager_scripts' );
 	 return $image[0];
  }
 
+function add_file_types_to_uploads($file_types){
+	$new_filetypes = array();
+	$new_filetypes['svg'] = 'image/svg+xml';
+	$file_types = array_merge($file_types, $new_filetypes );
+	return $file_types;
+}
+add_action('upload_mimes', 'add_file_types_to_uploads');
+
 
 function get_max_dimension($images, $idx){
 		$dims = array_map(function($image) use ($idx) {

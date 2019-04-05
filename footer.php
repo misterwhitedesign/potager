@@ -79,7 +79,6 @@
 	</footer>
 <?php wp_footer(); ?>
 </div>
-<section class="ferme">
 <?php
 $animaux = new WP_Query(array('post_type'=>'animal', 'post_status'=>'publish', 'posts_per_page'=>-1));
 $index = 0;
@@ -98,7 +97,6 @@ while ( $animaux->have_posts() ) :
 	echo '<img class="animal '.$taille.' '.$animation.' '.$direction.'" style="'.$style.'"src="'.$image.'">';
 endwhile;
 ?>
-</section>
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
