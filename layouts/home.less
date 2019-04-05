@@ -1,27 +1,14 @@
 body.home {
   h1.home-title  {
     max-width: 10 * @goutiere;
+    @media(max-width: @bp-mid){
+      padding-left: @goutiere;
+    }
   }
   .firstpage {
-      .leftcolumn {
-        padding-top: 3.5 * @goutiere;
-        min-width: 9 * @goutiere;
-        p {
-          width: 8.2 * @goutiere;
-        }
-      }
-    @media (max-width: @bp-mid) {
-      .two-columns {
-          flex-direction:column-reverse;
-          .leftcolumn {
-              padding-top: 0;
-              padding-left: 0.5 * @goutiere;
-              max-width: 90%;
-              min-width: 90%;
-              p {
-                margin: 0 auto;
-              }
-          }
+    .leftcolumn {
+      .entry-content {
+        float: none;
       }
     }
   }

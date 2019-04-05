@@ -23,6 +23,7 @@ body {
   .scroll {
     overflow-y: auto;
     height: 100%;
+    
     h1.entry-title {
       padding-right: @goutiere;
       margin-top: 2 * @goutiere;
@@ -37,8 +38,15 @@ body {
       max-width: 30%;
       min-width: 8.2 * @goutiere;
       float:right;
+      @media (max-width: @bp-mid) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        max-width: inherit;
+        min-width: inherit;
+        float: none;
+      }
     }
-
     .firstpage {
       max-width: 25 * @goutiere;
       padding-right: @goutiere;
@@ -47,7 +55,10 @@ body {
       .two-columns {
 
         display: flex;
-
+        @media (max-width: @bp-mid) {
+          padding-top: @goutiere;
+          flex-direction:column-reverse;
+        }
         .leftcolumn {
           min-width: 500px;
           background-size: cover;
@@ -56,17 +67,19 @@ body {
           padding-left: @goutiere;
           z-index: -1;
           background-repeat: no-repeat;
+          @media (max-width: @bp-mid) {
+            padding-top: 0;
+            padding-left: 0.5 * @goutiere;
+            max-width: 90%;
+            min-width: 90%;
+            p {
+              margin: 0 auto;
+            }
+          }
         }
-
         .rightcolumn {
           padding-top: @goutiere;
           width: 100%;
-          @media (max-width: @bp-wide) {
-            margin-top: @goutiere;
-          }
-          @media (max-width: @bp-mid) {
-            margin-top: 2 * @goutiere;
-          }
         }
       }
     }

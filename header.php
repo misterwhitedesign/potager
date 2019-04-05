@@ -36,11 +36,11 @@
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
 			) );
-			$menu_src = get_field('hamburger', 'menu-1');
 			?>
 			<button class="menu-toggle"
-							aria-controls="primary-menu" aria-expanded="false"
-							style="background: url(<?php echo $menu_src ?>)"></button>
+							aria-controls="primary-menu"
+							aria-expanded="false">
+			</button>
 		</nav>
 	</header>
 	<div class="scroll">
@@ -72,8 +72,10 @@
 		<div class="leftcolumn">
 			<?php
 			if (is_front_page()) :
-					echo $post->post_content;
-			endif; ?>
+			?><div class="entry-content">
+			<?php		echo $post->post_content; ?>
+			</div>
+			<?php endif; ?>
 		</div>
 		<div class="rightcolumn">
 			<?php

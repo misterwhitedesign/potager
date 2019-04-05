@@ -14,21 +14,21 @@ header.site-header {
     padding-right: .7 * @goutiere;
     button.menu-toggle {
       display: none;
-      @media(max-width: @bp-small){
+      @media(max-width: @bp-mid){
         display: block;
+        width: 3rem;
+        height: 3rem;
+        border: none;
         float: right;
+        cursor: pointer;
+        background: url("./burger-menu.svg");
+        background-repeat: no-repeat;
       }
     }
     ul.nav-menu {
       margin-top: 0px;
       width: 75%;
-      @media(max-width: @bp-mid){
-        width: 100%;
-      }
       float: right;
-      @media(max-width: @bp-small){
-        display: none;
-      }
       list-style: none;
       display: flex;
       justify-content: space-evenly;
@@ -36,6 +36,37 @@ header.site-header {
         a {
           text-decoration: none;
           color: white;
+        }
+      }
+      @media(max-width: @bp-mid){
+        display: none;
+      }
+    }
+  }
+  @media(max-width: @bp-mid){
+    nav.toggled {
+      button.menu-toggle {
+        position: absolute;
+        right:@goutiere;
+        background: url("./fermer.svg");
+        z-index: 2;
+      }
+      ul.nav-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        padding-top: 3.5 * @goutiere;
+        padding-bottom: 3.5 * @goutiere;
+
+        top:0;
+        left: 0;
+        width:100%;
+        flex-direction:column;
+        background-color: #176E89;
+        opacity: 0.9;
+        li {
+          height: @goutiere;
         }
       }
     }
