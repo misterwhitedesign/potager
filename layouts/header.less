@@ -8,6 +8,10 @@ header.site-header {
   img.custom-logo {
     padding-left: @goutiere;
     width: 2 * @goutiere;
+    @media(max-width: @bp-mid){
+      padding-left: @goutiere / 2;
+      width: 1 * @goutiere;
+    }
   }
   nav {
     flex: auto;
