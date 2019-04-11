@@ -66,6 +66,7 @@
  		<a class="gallery" href="#<?php echo $id; ?>">
  				<figure id="<?php echo $id; ?>" class="<?php echo $figure_class; ?>">
  					<img src="<?php echo $full_image_url; ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>">
+					<figcaption><p><?php echo $caption ?></p></figcaption>
  				</figure>
  		</a>
  <?php endforeach; ?>
