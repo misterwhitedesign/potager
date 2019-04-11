@@ -2,6 +2,10 @@
     z-index: 5;
     position:absolute;
   }
+  .animal.hide {
+    display: none;
+  }
+
   .animal.petite {
     width: 2%;
     height: auto;
@@ -19,8 +23,8 @@
      60% {transform: translateY(-2 * @goutiere);}
   }
 
-  .animal.petite.puce {
-    animation: 10s infinite ease-in alternate bounce;
+  .animal.petite.puce.start {
+    animation: 10s 3 ease-in alternate bounce;
   }
 
   @keyframes riseturn {
@@ -28,8 +32,8 @@
     to   { transform: rotate(10turn) translateY(0); }
   }
 
-  .animal.hirondelle {
-    animation: 20s infinite ease-in alternate riseturn;
+  .animal.hirondelle.start {
+    animation: 20s 1 ease-in alternate riseturn;
   }
 
   @keyframes bumpturn {
@@ -39,11 +43,11 @@
     100% {transform: translateX(0) scale(0.5) rotateZ(1turn);}
   }
 
-  .animal.sifilet {
-    animation: 20s infinite ease-in bumpturn;
+  .animal.sifilet.start {
+    animation: 20s 1 ease-in bumpturn;
   }
 
-  .animal.go-down {
+  .animal.go-down.start {
     top:-600px;
     @keyframes fall {
       from { transform: translateY(0%); }
@@ -51,11 +55,11 @@
     }
   }
 
-  .animal.martin {
-    animation: 15s 2 alternate fall;
+  .animal.martin.start {
+    animation: 15s 1 alternate fall;
   }
 
-  .animal.go-up {
+  .animal.go-up.start {
     bottom: 0;
     @keyframes up {
       from { transform: translateX(30*@goutiere); }
@@ -64,20 +68,20 @@
     animation: 20s 2 alternate up;
   }
 
-  .animal.go-left {
+  .animal.go-left.start {
     right:20*@goutiere;
     @keyframes left {
       from { transform: translateX(50*@goutiere); }
       to   { transform: translateX(0%); }
     }
-    animation: 18s infinite left;
+    animation: 18s 1 left;
   }
 
-  .animal.go-right {
+  .animal.go-right.start {
     left:-600px;
     @keyframes right {
       from { transform: translateX(0%); }
       to   { transform: translateX(50*@goutiere); }
     }
-    animation: 17s infinite right;
+    animation: 17s 1 right;
   }

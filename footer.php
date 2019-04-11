@@ -95,7 +95,7 @@ while ( $animaux->have_posts() ) :
 	$style = $style.rand(5,95).'%;';
 	$style = $style.'animation-delay: '.rand(0,5).'s';
 	$taille = get_field("taille",$id);
-	echo '<img class="animal '.$taille.' '.$animation.' '.$direction.'" style="'.$style.'"src="'.$image.'">';
+	echo '<img class="animal hide '.$taille.' '.$animation.' '.$direction.'" style="'.$style.'"src="'.$image.'">';
 endwhile;
 ?>
 <script src="//code.jquery.com/jquery-latest.js"></script>
