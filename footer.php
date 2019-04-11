@@ -30,7 +30,7 @@
 					$category = $category . ' / ' . $categories[1]->name;
 				}
 				echo '<figure class="'.$figure_class.' '.$size.'"><a href="' . get_permalink() . '">'
-				. get_the_post_thumbnail( get_the_ID(), 'medium' ).'</a>'
+				. get_the_post_thumbnail( get_the_ID(), 'full' ).'</a>'
 				.'<figcaption><h5>'. get_the_title() . '</h5><p>'. $category . '</p></figcaption></figure>';
 			endwhile;
 			?>
