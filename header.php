@@ -75,7 +75,10 @@
 			?><div class="entry-content">
 			<?php		echo $post->post_content; ?>
 			</div>
-			<?php endif; ?>
+			<?php
+			elseif ( $post->post_type != 'projet'):
+				include 'galleries/gallerie-page.php';
+			endif; ?>
 		</div>
 		<div class="rightcolumn">
 			<?php
