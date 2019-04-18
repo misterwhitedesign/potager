@@ -1,5 +1,5 @@
 <footer id="colophon" class="site-footer">
   <p>
-    © potager liberté   /  Mentions légales
+    <a href="/politique-de-confidentialite">© potager liberté   /  Mentions légales</a>
   </p>
 </footer>
