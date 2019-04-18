@@ -1,5 +1,6 @@
 put -r js
 put -r layouts
 put -r template-parts
+put -r galleries
 put *.php
 exit
