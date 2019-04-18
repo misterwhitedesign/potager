@@ -1,5 +1,5 @@
-<section class="projets">
-  <h2 name="projets" class="gauche">Projets en cours<br>et passés</h2>
+<section class="projets" id="projets">
+  <h2 class="gauche">Projets en cours<br>et passés</h2>
   <?php
   $projets = new WP_Query(array('post_type'=>'projet', 'post_status'=>'publish', 'posts_per_page'=>-1));
   $index = 0;
