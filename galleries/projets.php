@@ -9,8 +9,8 @@
     $figure_class = ($index++ % 2 == 0 ? "droite" : "gauche");
     $categories =  get_the_category();
     $category = $categories[0]->name;
-    if (count($categories) > 1){
-      $category = $category . ' / ' . $categories[1]->name;
+    for ($i = 1; $i < count($categories); $i++) {
+      $category = $category . ' / ' . $categories[$i]->name;
     }
     echo '<a href="' . get_permalink() . '"><figure class="'.$figure_class.' '.$size.'">'
     . get_the_post_thumbnail( get_the_ID(), 'full' )
