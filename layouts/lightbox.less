@@ -9,20 +9,19 @@
     }
 
     .featherlight-close-icon {
-      background: url("./fermer.svg");
+      background: url("./fermer.png");
+      background-size: contain;
     }
 
     .featherlight-next:hover, .featherlight-previous:hover {
       background: rgba(255,255,255,.00);
     }
 
-    .featherlight-previous > span {
-      background: url('./fleche-gauche.svg');
-      background-repeat :no-repeat;
+    .featherlight-previous:hover {
+      cursor:url(./fleche-gauche.png),auto;
     }
-    .featherlight-next > span {
-      background: url('./fleche-droite.svg');
-      background-repeat :no-repeat;
+    .featherlight-next:hover {
+      cursor:url(./fleche-droite.png),auto;
     }
     .featherlight-previous {
       right: 50%;
