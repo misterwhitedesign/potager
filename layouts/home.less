@@ -15,11 +15,17 @@ body.home {
             float: none;
             padding-left: 0;
             padding-top: 3 * @goutiere;
+            @media(max-width: @bp-small){
+              padding-top: @goutiere;
+            }
             p {
                 width: 7.5 * @goutiere;
+                @media(max-width: @bp-small){
+                  width: 5.5 * @goutiere;
+                }
             }
           }
-        }  
+        }
       }
     }
   }
