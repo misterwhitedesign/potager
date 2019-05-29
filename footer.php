@@ -22,6 +22,7 @@
 	wp_footer(); ?>
 </div>
 <?php include 'animaux.php' ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38769084-6"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-38769084-6'); </script> 
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
